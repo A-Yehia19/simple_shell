@@ -29,7 +29,7 @@ int excute_command(char **tokens, int *tokens_len)
 		pid = fork();
 
 		/*child process*/
-		if (pid = 0)
+		if (pid == 0)
 		{
 			end = execve(tokens[0], tokens, NULL);
 
@@ -39,7 +39,7 @@ int excute_command(char **tokens, int *tokens_len)
 
 		/*parent process*/
 		else{
-			wait(pid);
+			wait(&pid);
 		}
 	}
 

@@ -10,6 +10,7 @@
 #include <limits.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <sys/wait.h>
 
 
 int _printf(const char *format, ...);

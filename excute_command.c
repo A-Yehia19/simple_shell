@@ -31,7 +31,7 @@ int excute_command(char **tokens, int *tokens_len)
 			end = execve(tokens[0], tokens, NULL);
 
 			if (end == -1)
-				_printf("Unknown command: %s\n", tokens[0]);
+				print_error();
 
 			exit (end);
 		}

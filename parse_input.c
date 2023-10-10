@@ -34,6 +34,7 @@ int parse_input(char *line, char **tokens, int *tokens_len)
 		if (line[last] == '\0')
 			break;
 	}
+	tokens[*tokens_len] = NULL;
 
 	return (0);
 }

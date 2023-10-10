@@ -6,6 +6,6 @@
     "code-runner.saveFileBeforeRun": true,
     "git.enableSmartCommit": true,
     "code-runner.executorMap": {
-        "c": "cd $dir && gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o sh && ./sh.exe && rm sh.exe"
+        "c": "cd $dir && gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o sh_out && ./sh_out* && rm sh_out*"
     }
 }

@@ -10,7 +10,7 @@
 
 int excute_command(char **tokens, int *tokens_len)
 {
-	int end, pid;
+	int end;
 
 	if (*tokens_len == 0)
 		return (1);
@@ -19,27 +19,26 @@ int excute_command(char **tokens, int *tokens_len)
 	{
 		_printf("Goodbye!\n");
 		clear_tokens(tokens, tokens_len);
-		free(tokens);
 		free(tokens_len);
 		exit(0);
 	}
-	
+
 	else
 	{
-		pid = fork();
-
 		/*child process*/
-		if (pid == 0)
+		if (fork() == 0)
 		{
 			end = execve(tokens[0], tokens, NULL);
 
 			if (end == -1)
 				_printf("Unknown command: %s\n", tokens[0]);
+
+			exit (end);
 		}
 
 		/*parent process*/
 		else{
-			wait(&pid);
+			wait(&end);
 		}
 	}
 

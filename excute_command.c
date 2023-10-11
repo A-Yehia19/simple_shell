@@ -10,37 +10,42 @@
 
 int excute_command(char **tokens, int *tokens_len)
 {
-	int end;
+	int end, found;
+	char *path = NULL;
 
 	if (*tokens_len == 0)
 		return (1);
 
 	if (_strcmp(tokens[0], "exit") == 0)
 	{
-		_printf("Goodbye!\n");
 		clear_tokens(tokens, tokens_len);
 		free(tokens_len);
+		free(path);
 		exit(0);
 	}
 
 	else
 	{
-		/*child process*/
-		if (fork() == 0)
+		/*check file existence in current directory*/
+		found = check_exist(tokens[0], &path);
+		
+		if(found)
 		{
-			end = execve(tokens[0], tokens, NULL);
+			_printf("%s\n", path);
+			/*child process*/
+			if (fork() == 0)
+			{
+				end = execve(path, tokens, NULL);
+				exit (end);
+			}
 
-			if (end == -1)
-				print_error();
-
-			exit (end);
+			/*parent process*/
+			else
+				wait(&end);
 		}
-
-		/*parent process*/
-		else{
-			wait(&end);
-		}
+		else
+			print_error();
 	}
-
+	
 	return (0);
 }

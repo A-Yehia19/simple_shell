@@ -16,7 +16,7 @@ int parse_input(char *line, char **tokens, int *tokens_len)
 	first = 0;
 	for (last = 0; 1; last++)
 	{
-		if (line[last] == ' ' || line[last] == '\0' || line[last] == '\t')
+		if (line[last] == ' ' || line[last] == '\0' || line[last] == ':')
 		{
 			if (last - first > 0)
 			{

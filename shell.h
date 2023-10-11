@@ -13,15 +13,20 @@
 #include <sys/wait.h>
 
 char* shell_name;
+extern char **environ;
 
 int _printf(const char *format, ...);
 int _strcmp(char *str1, char * str2);
 int _strncpy(char *dest, char *src, int len);
+int _strcpy(char *dest, char *src);
 
 void print_error();
 int clear_tokens(char **tokens, int *tokens_len);
 int get_input(char *line);
 int parse_input(char *line, char **tokens, int *tokens_len);
 int excute_command(char **tokens, int *tokens_len);
+char *getpath(char **env);
+int check_exist(char *command, char **path);
+char *create_path(char *dir, char *program);
 
 #endif

@@ -31,7 +31,7 @@ int excute_command(char **tokens, int *tokens_len)
 		
 		if(found)
 		{
-			_printf("%s\n", path);
+			/*_printf("%s\n", path);*/
 			/*child process*/
 			if (fork() == 0)
 			{

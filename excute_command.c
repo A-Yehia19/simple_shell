@@ -1,6 +1,5 @@
 #include "shell.h"
 
-
 /**
  * excute_command - get line of input from stdin
  * @tokens: array of tokens
@@ -28,10 +27,9 @@ int excute_command(char **tokens, int *tokens_len)
 	{
 		/*check file existence in current directory*/
 		found = check_exist(tokens[0], &path);
-		
+
 		if(found)
 		{
-			/*_printf("%s\n", path);*/
 			/*child process*/
 			if (fork() == 0)
 			{
@@ -46,6 +44,6 @@ int excute_command(char **tokens, int *tokens_len)
 		else
 			print_error();
 	}
-	
+
 	return (0);
 }

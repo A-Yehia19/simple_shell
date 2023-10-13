@@ -11,7 +11,7 @@ int check_exist(char *command, char **absolute_path)
 {
 	int *path_len = malloc(sizeof(int)), i, found;
 	struct stat buffer;
-	char cwd[BUFSIZ], *path;
+	char cwd[BUFSIZ], *path = NULL;
 	char *path_tokens[BUFSIZ] = {NULL};
 
 	found = 0;

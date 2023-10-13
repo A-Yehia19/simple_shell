@@ -19,7 +19,6 @@ int excute_command(char **tokens, int *tokens_len)
 	{
 		clear_tokens(tokens, tokens_len);
 		free(tokens_len);
-		free(path);
 		exit(0);
 	}
 
@@ -45,5 +44,6 @@ int excute_command(char **tokens, int *tokens_len)
 			print_error();
 	}
 
+	free(path);
 	return (0);
 }

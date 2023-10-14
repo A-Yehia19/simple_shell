@@ -16,11 +16,10 @@ int excute_command(char **tokens, int *tokens_len)
 		return (1);
 
 	if (_strcmp(tokens[0], "exit") == 0)
-	{
-		clear_tokens(tokens, tokens_len);
-		free(tokens_len);
-		exit(0);
-	}
+		exit_command(tokens, tokens_len);
+
+	else if (_strcmp(tokens[0], "env") == 0)
+		env_command();
 
 	else
 	{

@@ -20,6 +20,8 @@ int _strcmp(char *str1, char * str2);
 int _strncpy(char *dest, char *src, int len);
 int _strcpy(char *dest, char *src);
 int _assignstr(char **dest, char *src);
+int _atoi(char *str);
+int _pow(int base, int power);
 
 void print_error();
 int clear_tokens(char **tokens, int *tokens_len);
@@ -29,5 +31,7 @@ int excute_command(char **tokens, int *tokens_len);
 char *getpath(char **env);
 int check_exist(char *command, char **path);
 char *create_path(char *dir, char *program);
+void exit_command(char **tokens, int *tokens_len);
+int env_command();
 
 #endif

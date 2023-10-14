@@ -16,7 +16,7 @@ int parse_input(char *line, char **tokens, int *tokens_len)
 	first = 0;
 	for (last = 0; 1; last++)
 	{
-		if (line[last] == ' ' || line[last] == '\0' || line[last] == ':')
+		if (line[last] == ' ' || line[last] == '\0' || line[last] == ':' || line[last] == '#')
 		{
 			if (last - first > 0)
 			{
@@ -31,7 +31,7 @@ int parse_input(char *line, char **tokens, int *tokens_len)
 			first = last + 1;
 		}
 
-		if (line[last] == '\0')
+		if (line[last] == '\0' || line[last] == '#')
 			break;
 	}
 	tokens[*tokens_len] = NULL;

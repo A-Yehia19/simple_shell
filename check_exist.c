@@ -29,7 +29,7 @@ int check_exist(char *command, char **absolute_path)
 		if (stat(command, &buffer) == 0)
 		{
 			found = 1;
-			*absolute_path = command;
+			_assignstr(absolute_path, command);
 		}
 		chdir(cwd);
 	}

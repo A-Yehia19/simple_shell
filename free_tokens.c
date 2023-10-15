@@ -2,7 +2,7 @@
 #include "printf.h"
 
 /**
- * free_tokens - clear all tokens and reset tokens_len
+ * clear_tokens - clear all tokens and reset tokens_len
  * @tokens: The list to clear.
  * @tokens_len: The list size.
  *

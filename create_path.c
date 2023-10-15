@@ -17,7 +17,7 @@ char *create_path(char *dir, char *program)
 	for (len2 = 0; program[len2] != '\0'; len2++)
 		;
 
-	result = malloc (sizeof(char) * (len1 + len2 + 2));
+	result = malloc(sizeof(char) * (len1 + len2 + 2));
 	if (result == NULL)
 		return (NULL);
 

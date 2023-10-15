@@ -3,8 +3,8 @@
 
 /**
  * main - entry point
- * @ac: arg count
- * @av: arg vector
+ * @argc: arg count
+ * @argv: arg vector
  *
  * Return: 0 on success, 1 on error
  */
@@ -14,6 +14,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 	char line[BUFSIZ];
 	char *tokens[BUFSIZ] = {NULL};
 	int *tokens_len = malloc(sizeof(int));
+
 	shell_name = argv[0];
 
 	if (tokens == NULL || tokens_len == NULL)

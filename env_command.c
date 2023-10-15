@@ -6,7 +6,7 @@
  * Return: 0 on success, 1 on error
  */
 
-int env_command()
+int env_command(void)
 {
 	int i;
 

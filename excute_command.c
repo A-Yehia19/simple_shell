@@ -26,13 +26,13 @@ int excute_command(char **tokens, int *tokens_len)
 		/*check file existence in current directory*/
 		found = check_exist(tokens[0], &path);
 
-		if(found)
+		if (found)
 		{
 			/*child process*/
 			if (fork() == 0)
 			{
 				end = execve(path, tokens, NULL);
-				exit (end);
+				exit(end);
 			}
 
 			/*parent process*/

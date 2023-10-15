@@ -9,10 +9,17 @@
 char *getpath(char **env)
 {
 	int i;
-	
+
 	for (i = 0; env[i] != NULL; i++)
-		if(env[i][0] == 'P' && env[i][1] == 'A' && env[i][2] == 'T' && env[i][3] == 'H')
-			return (env[i]);
+	{
+		if (env[i][0] == 'P' && env[i][1] == 'A')
+		{
+			if (env[i][2] == 'T' && env[i][3] == 'H')
+			{
+				return (env[i]);
+			}
+		}
+	}
 
 	return (NULL);
 }

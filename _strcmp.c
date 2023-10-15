@@ -7,19 +7,19 @@
  *
  * Return: 0 if equal else return 1.
  */
-int _strcmp(char *str1, char * str2)
+int _strcmp(char *str1, char *str2)
 {
-    while(*str1 && *str2)
-    {
-        if (*str1 != *str2)
-            return (1);
-        
-        str1++;
-        str2++;
-    }
+	while (*str1 && *str2)
+	{
+		if (*str1 != *str2)
+			return (1);
 
-    if (*str1 == *str2)
-        return (0);
-    
-    return (1);
+		str1++;
+		str2++;
+	}
+
+	if (*str1 == *str2)
+		return (0);
+
+	return (1);
 }

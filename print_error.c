@@ -5,7 +5,7 @@
  *
  * Return: None
  */
-void print_error()
+void print_error(void)
 {
 	_printf("%s: No such file or directory\n", shell_name);
 }

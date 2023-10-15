@@ -12,7 +12,6 @@
 #include <errno.h>
 #include <sys/wait.h>
 
-char *shell_name;
 extern char **environ;
 
 int _printf(const char *format, ...);
@@ -23,11 +22,11 @@ int _assignstr(char **dest, char *src);
 int _atoi(char *str);
 int _pow(int base, int power);
 
-void print_error(void);
+void print_error(char *shell_name);
 int clear_tokens(char **tokens, int *tokens_len);
 int get_input(char *line);
 int parse_input(char *line, char **tokens, int *tokens_len);
-int excute_command(char **tokens, int *tokens_len);
+int excute_command(char **tokens, int *tokens_len, char *shell_name);
 char *getpath(char **env);
 int check_exist(char *command, char **path);
 char *create_path(char *dir, char *program);

@@ -15,7 +15,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 	char *tokens[BUFSIZ] = {NULL};
 	int *tokens_len = malloc(sizeof(int));
 
-	shell_name = argv[0];
+	char *shell_name = argv[0];
 
 	if (tokens == NULL || tokens_len == NULL)
 		return (1);
@@ -28,7 +28,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			continue;
 
 		if (parse_input(line, tokens, tokens_len) == 0)
-			excute_command(tokens, tokens_len);
+			excute_command(tokens, tokens_len, shell_name);
 
 		clear_tokens(tokens, tokens_len);
 	}

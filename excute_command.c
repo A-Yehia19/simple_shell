@@ -7,7 +7,7 @@
  * Return: 0 on success, 1 on error
  */
 
-int excute_command(char **tokens, int *tokens_len)
+int excute_command(char **tokens, int *tokens_len, char *shell_name)
 {
 	int end, found;
 	char *path = NULL;
@@ -40,7 +40,7 @@ int excute_command(char **tokens, int *tokens_len)
 				wait(&end);
 		}
 		else
-			print_error();
+			print_error(shell_name);
 	}
 
 	free(path);

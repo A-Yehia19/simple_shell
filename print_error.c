@@ -2,7 +2,7 @@
 
 /**
  * print_error - print error msg if something went wrong.
- *
+ * @shell_name: input command
  * Return: None
  */
 void print_error(char *shell_name)

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * exit_command - perform buitin exit function
+ * exit_command - perform buitin exit function.
  * @tokens: array of tokens
  * @tokens_len: array of token lengths
  * Return: NONE

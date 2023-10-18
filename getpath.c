@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * getpath - return string containing the PATH.
+ * getpath - return string containing the PATH
  * @env: enviroment list.
  *
  * Return: On success length of string.

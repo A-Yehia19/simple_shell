@@ -14,6 +14,7 @@
 
 extern char **environ;
 
+
 int _printf(const char *format, ...);
 int _strcmp(char *str1, char *str2);
 int _strncpy(char *dest, char *src, int len);

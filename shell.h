@@ -28,11 +28,11 @@ void print_error(char *shell_name);
 int clear_tokens(char **tokens, int *tokens_len);
 int get_input(char *line);
 int parse_input(char *line, char **tokens, int *tokens_len);
-int excute_command(char **tokens, int *tokens_len, char *shell_name);
+int excute_command(char **tokens, int *tokens_len, char *shell_name, int *end);
 char *getpath(char **env);
 int check_exist(char *command, char **path);
 char *create_path(char *dir, char *program);
-void exit_command(char **tokens, int *tokens_len);
+void exit_command(char **tokens, int *tokens_len, int end);
 int env_command(void);
 
 #endif

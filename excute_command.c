@@ -8,16 +8,16 @@
  * Return: 0 on success, 1 on error
  */
 
-int excute_command(char **tokens, int *tokens_len, char *shell_name)
+int excute_command(char **tokens, int *tokens_len, char *shell_name, int *end)
 {
-	int end, found;
+	int found;
 	char *path = NULL;
 
 	if (*tokens_len == 0)
 		return (1);
 
 	if (_strcmp(tokens[0], "exit") == 0)
-		exit_command(tokens, tokens_len);
+		exit_command(tokens, tokens_len, *end);
 
 	else if (_strcmp(tokens[0], "env") == 0)
 		env_command();
@@ -32,16 +32,20 @@ int excute_command(char **tokens, int *tokens_len, char *shell_name)
 			/*child process*/
 			if (fork() == 0)
 			{
-				end = execve(path, tokens, NULL);
-				exit(end);
+				*end = execve(path, tokens, NULL);
+				exit(*end);
 			}
 
 			/*parent process*/
 			else
-				wait(&end);
+				wait(end);
+
 		}
 		else
+		{
+			*end = 1;
 			print_error(shell_name);
+		}
 	}
 
 	free(path);

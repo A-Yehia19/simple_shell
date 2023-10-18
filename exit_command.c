@@ -7,14 +7,16 @@
  * Return: NONE
  */
 
-void exit_command(char **tokens, int *tokens_len)
+void exit_command(char **tokens, int *tokens_len, int end)
 {
 	int status;
 
 	if (tokens[1] != NULL)
 		status = _atoi(tokens[1]);
+	else if (end != 0)
+		status = EXIT_FAILURE;
 	else
-		status = 0;
+		status = EXIT_SUCCESS;
 
 	clear_tokens(tokens, tokens_len);
 	exit(status);

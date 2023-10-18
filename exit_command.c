@@ -17,6 +17,5 @@ void exit_command(char **tokens, int *tokens_len)
 		status = 0;
 
 	clear_tokens(tokens, tokens_len);
-	free(tokens_len);
 	exit(status);
 }

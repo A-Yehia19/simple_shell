@@ -16,7 +16,7 @@ int parse_input(char *l, char **tokens, int *tokens_len)
 	first = 0;
 	for (last = 0; 1; last++)
 	{
-		if (l[last] == ' ' || l[last] == '\0' || l[last] == ':' || l[last] == '#')
+		if (l[last] == ' ' || l[last] == '\t' || l[last] == '\0' || l[last] == ':' || l[last] == '#')
 		{
 			if (last - first > 0)
 			{

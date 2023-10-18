@@ -1,14 +1,10 @@
 #include "shell.h"
-
-
 /**
  * main - entry point.
  * @argc: arg count.
  * @argv: arg vector
- *
  * Return: 0 on success, 1 on error
  */
-
 int main(__attribute__((unused)) int argc, char **argv)
 {
 	char line[BUFSIZ];
@@ -26,13 +22,11 @@ int main(__attribute__((unused)) int argc, char **argv)
 			_printf("($) ");
 			if (get_input(line) == 1)
 				continue;
-
 			command_num = count_commands(line, sep);
 			for (i = 0; i < command_num; i++)
 			{
 				if (parse_input(line + sep[i], tokens, &tokens_len) == 0)
 					excute_command(tokens, &tokens_len, shell_name, &end);
-
 				clear_tokens(tokens, &tokens_len);
 			}
 		}
@@ -41,16 +35,13 @@ int main(__attribute__((unused)) int argc, char **argv)
 	{
 		if (get_input(line) == 1)
 			return (1);
-
 		command_num = count_commands(line, sep);
 		for (i = 0; i < command_num; i++)
 		{
 			if (parse_input(line + sep[i], tokens, &tokens_len) == 0)
 				excute_command(tokens, &tokens_len, shell_name, &end);
-
 			clear_tokens(tokens, &tokens_len);
 		}
 	}
-
 	return (0);
 }

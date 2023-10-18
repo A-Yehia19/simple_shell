@@ -17,7 +17,7 @@ int count_commands(char *line, int sep[])
 		if (line[i] == '\n' || line[i] == ';')
 		{
 			line[i] = '\0';
-			sep[command_num] = i+1;
+			sep[command_num] = i + 1;
 			command_num++;
 		}
 	}

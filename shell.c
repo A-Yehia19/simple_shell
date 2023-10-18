@@ -15,6 +15,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 	char *tokens[BUFSIZ] = {NULL};
 	int tokens_len, end;
 	char *shell_name = argv[0];
+	int command_num, sep[BUFSIZ] = {0}, i;
 
 	tokens_len = 0;
 	end = 0;
@@ -26,10 +27,14 @@ int main(__attribute__((unused)) int argc, char **argv)
 			if (get_input(line) == 1)
 				continue;
 
-			if (parse_input(line, tokens, &tokens_len) == 0)
-				excute_command(tokens, &tokens_len, shell_name, &end);
+			command_num = count_commands(line, sep);
+			for (i = 0; i < command_num; i++)
+			{
+				if (parse_input(line + sep[i], tokens, &tokens_len) == 0)
+					excute_command(tokens, &tokens_len, shell_name, &end);
 
-			clear_tokens(tokens, &tokens_len);
+				clear_tokens(tokens, &tokens_len);
+			}
 		}
 	}
 	else
@@ -37,10 +42,14 @@ int main(__attribute__((unused)) int argc, char **argv)
 		if (get_input(line) == 1)
 			return (1);
 
-		if (parse_input(line, tokens, &tokens_len) == 0)
-			excute_command(tokens, &tokens_len, shell_name, &end);
+		command_num = count_commands(line, sep);
+		for (i = 0; i < command_num; i++)
+		{
+			if (parse_input(line + sep[i], tokens, &tokens_len) == 0)
+				excute_command(tokens, &tokens_len, shell_name, &end);
 
-		clear_tokens(tokens, &tokens_len);
+			clear_tokens(tokens, &tokens_len);
+		}
 	}
 
 	return (0);

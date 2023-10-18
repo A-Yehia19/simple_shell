@@ -34,5 +34,6 @@ int check_exist(char *command, char **path);
 char *create_path(char *dir, char *program);
 void exit_command(char **tokens, int *tokens_len, int end);
 int env_command(void);
+int count_commands(char *line, int sep[]);
 
 #endif

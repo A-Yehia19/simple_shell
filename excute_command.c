@@ -2,6 +2,7 @@
 
 /**
  * excute_command - get line of input from stdin.
+ * @end: input
  * @tokens: array of tokens
  * @tokens_len: array of token lengths
  * @shell_name: input command

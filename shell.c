@@ -39,7 +39,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 
 		if (parse_input(line, tokens, &tokens_len) == 0)
 			excute_command(tokens, &tokens_len, shell_name, &end);
-		
+
 		clear_tokens(tokens, &tokens_len);
 	}
 

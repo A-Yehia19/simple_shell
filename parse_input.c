@@ -11,30 +11,30 @@
 
 int parse_input(char *l, char **tokens, int *tokens_len)
 {
-	int first, last;
+int first, t;
 
-	first = 0;
-	for (last = 0; 1; last++)
+first = 0;
+for (t = 0; 1; t++)
+{
+	if (l[t] == ' ' || l[t] == '\t' || l[t] == '\0' || l[t] == ':' || l[t] == '#')
 	{
-		if (l[last] == ' ' || l[last] == '\t' || l[last] == '\0' || l[last] == ':' || l[last] == '#')
+		if (t - first > 0)
 		{
-			if (last - first > 0)
-			{
-				tokens[*tokens_len] = malloc(sizeof(char) * (last - first + 1));
-				if (tokens[*tokens_len] == NULL)
-					return (1);
+			tokens[*tokens_len] = malloc(sizeof(char) * (t - first + 1));
+			if (tokens[*tokens_len] == NULL)
+				return (1);
 
-				_strncpy(tokens[*tokens_len], l + first, last - first);
-				tokens[*tokens_len][last - first] = '\0';
-				(*tokens_len)++;
-			}
-			first = last + 1;
+			_strncpy(tokens[*tokens_len], l + first, t - first);
+			tokens[*tokens_len][t - first] = '\0';
+			(*tokens_len)++;
 		}
-
-		if (l[last] == '\0' || l[last] == '#')
-			break;
+		first = t + 1;
 	}
-	tokens[*tokens_len] = NULL;
 
-	return (0);
+	if (l[t] == '\0' || l[t] == '#')
+		break;
+}
+tokens[*tokens_len] = NULL;
+
+return (0);
 }

@@ -2,6 +2,7 @@
 
 /**
  * exit_command - perform buitin exit function.
+ * @end: input
  * @tokens: array of tokens
  * @tokens_len: array of token lengths
  * Return: NONE

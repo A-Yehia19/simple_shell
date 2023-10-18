@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * excute_command - get line of input from stdin
+ * excute_command - get line of input from stdin.
  * @tokens: array of tokens
  * @tokens_len: array of token lengths
  * @shell_name: input command

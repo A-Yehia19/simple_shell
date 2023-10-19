@@ -15,11 +15,11 @@ int first, t, k, check, sep;
 
 first = 0;
 check = 0;
-k=-2;
+k = -2;
 for (t = 0; 1; t++)
 {
 	check = l[t] == '#' && k >= 0 && _strcmp(tokens[0] + k, "echo") == 0;
-	check = check && l[t-1] != ' ' && l[t-1] != '\t';
+	check = check && l[t - 1] != ' ' && l[t - 1] != '\t';
 	sep = (!check && l[t] == '#');
 
 	if (l[t] == ' ' || l[t] == '\t' || l[t] == '\0' || sep)

@@ -11,11 +11,9 @@
 
 int parse_input(char *l, char **tokens, int *tokens_len)
 {
-int first, t, k, check;
+int first, t;
 
 first = 0;
-check = 0;
-k=-2;
 for (t = 0; 1; t++)
 {
 	if (l[t] == ' ' || l[t] == '\t' || l[t] == '\0' || l[t] == ':')
@@ -26,8 +24,6 @@ for (t = 0; 1; t++)
 			if (tokens[*tokens_len] == NULL)
 				return (1);
 
-			if (*tokens_len == 0)
-				k = t - first - 4;
 			_strncpy(tokens[*tokens_len], l + first, t - first);
 			tokens[*tokens_len][t - first] = '\0';
 			(*tokens_len)++;

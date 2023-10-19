@@ -14,24 +14,23 @@ int check_exist(char *command, char **absolute_path)
 	char cwd[BUFSIZ], *path = NULL;
 	char *path_tokens[BUFSIZ] = {NULL};
 
-	/*check if command is absolute path*/
-	if (stat(command, &buffer) == 0)
-	{
-		found = 1;
-		_assignstr(absolute_path, command);
-		return (found);
-	}
-
-	if (environ == NULL)
-		return (0);
-
 	found = 0;
 	*path_len = 0;
 	*absolute_path = NULL;
 	getcwd(cwd, BUFSIZ);
 	path = getpath(environ);
 	parse_input(path + 5, path_tokens, path_len);
-
+	/*check if command is absolute path*/
+	if (command[0] == '/' || command[0] == '.')
+	{
+		chdir(command);
+		if (stat(command, &buffer) == 0)
+		{
+			found = 1;
+			_assignstr(absolute_path, command);
+		}
+		chdir(cwd);
+	}
 	for (i = 0 ; i <= *path_len && !found; i++)
 	{
 		if (stat(command, &buffer) == 0)

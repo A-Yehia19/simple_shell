@@ -25,7 +25,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 			command_num = count_commands(line, sep);
 			for (i = 0; i < command_num; i++)
 			{
-				if (parse_input(line + sep[i], tokens, &tokens_len) == 0)
+				if (parse_line(line + sep[i], tokens, &tokens_len) == 0)
 					excute_command(tokens, &tokens_len, shell_name, &end);
 				clear_tokens(tokens, &tokens_len);
 			}
@@ -38,7 +38,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 		command_num = count_commands(line, sep);
 		for (i = 0; i < command_num; i++)
 		{
-			if (parse_input(line + sep[i], tokens, &tokens_len) == 0)
+			if (parse_line(line + sep[i], tokens, &tokens_len) == 0)
 				excute_command(tokens, &tokens_len, shell_name, &end);
 			clear_tokens(tokens, &tokens_len);
 		}

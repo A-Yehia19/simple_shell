@@ -2,23 +2,27 @@
 
 
 /**
- * parse_input - parse line of input into tokens
+ * parse_line - parse line of input into tokens
  * @l: input line
  * @tokens: array of tokens
  * @tokens_len: array of token lengths
  * Return: 0 on success, 1 on error
  */
 
-int parse_input(char *l, char **tokens, int *tokens_len)
+int parse_line(char *l, char **tokens, int *tokens_len)
 {
-int first, t, k, check;
+int first, t, k, check, sep;
 
 first = 0;
 check = 0;
 k=-2;
 for (t = 0; 1; t++)
 {
-	if (l[t] == ' ' || l[t] == '\t' || l[t] == '\0' || l[t] == ':')
+	check = l[t] == '#' && k >= 0 && _strcmp(tokens[0] + k, "echo") == 0;
+	check = check && l[t-1] != ' ' && l[t-1] != '\t';
+	sep = (!check && l[t] == '#');
+
+	if (l[t] == ' ' || l[t] == '\t' || l[t] == '\0' || sep)
 	{
 		if (t - first > 0)
 		{
@@ -28,6 +32,7 @@ for (t = 0; 1; t++)
 
 			if (*tokens_len == 0)
 				k = t - first - 4;
+
 			_strncpy(tokens[*tokens_len], l + first, t - first);
 			tokens[*tokens_len][t - first] = '\0';
 			(*tokens_len)++;
@@ -35,7 +40,7 @@ for (t = 0; 1; t++)
 		first = t + 1;
 	}
 
-	if (l[t] == '\0')
+	if (l[t] == '\0' || sep)
 		break;
 }
 tokens[*tokens_len] = NULL;

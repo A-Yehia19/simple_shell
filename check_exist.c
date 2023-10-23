@@ -9,28 +9,31 @@
 
 int check_exist(char *command, char **absolute_path)
 {
-	int *path_len = malloc(sizeof(int)), i, found;
+	int *path_len, i, found;
 	struct stat buffer;
 	char cwd[BUFSIZ], *path = NULL;
 	char *path_tokens[BUFSIZ] = {NULL};
 
+	/*check if command is absolute path*/
+	if (command[0] == '/' || command[0] == '.')
+	{
+		if (stat(command, &buffer) == 0)
+		{
+			_assignstr(absolute_path, command);
+			return (1);
+		}
+	}
+
 	found = 0;
+	path_len = malloc(sizeof(int));
+	if (path_len == NULL)
+		return (0);
 	*path_len = 0;
 	*absolute_path = NULL;
 	getcwd(cwd, BUFSIZ);
 	path = getpath(environ);
 	parse_input(path + 5, path_tokens, path_len);
-	/*check if command is absolute path*/
-	if (command[0] == '/' || command[0] == '.')
-	{
-		chdir(command);
-		if (stat(command, &buffer) == 0)
-		{
-			found = 1;
-			_assignstr(absolute_path, command);
-		}
-		chdir(cwd);
-	}
+
 	for (i = 0 ; i <= *path_len && !found; i++)
 	{
 		if (stat(command, &buffer) == 0)

@@ -18,11 +18,13 @@ extern char **environ;
 
 int _printf(const char *format, ...);
 int _strcmp(char *str1, char *str2);
+int _strcmpn(char *str1, char *str2);
 int _strncpy(char *dest, char *src, int len);
 int _strcpy(char *dest, char *src);
 int _assignstr(char **dest, char *src);
 int _atoi(char *str);
 int _pow(int base, int power);
+int _strlen(char *str);
 
 void print_error(char *shell_name);
 int clear_tokens(char **tokens, int *tokens_len);
@@ -36,5 +38,9 @@ char *create_path(char *dir, char *program);
 void exit_command(char **tokens, int *tokens_len, int end);
 int env_command(void);
 int count_commands(char *line, int sep[]);
+int check_builtin(char **tokens, int *tokens_len, char *shell_name);
+char **get_env(char **env, char *str);
+int cd_command(int argc, char **argv, char *shell_name);
+int _setenv(char *variable, char *value);
 
 #endif

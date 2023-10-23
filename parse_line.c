@@ -5,7 +5,7 @@
  * parse_line - parse line of input into tokens
  * @l: input line
  * @tokens: array of tokens
- * @tokens_len: array of token lengths
+ * @tokens_len: length of array
  * Return: 0 on success, 1 on error
  */
 

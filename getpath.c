@@ -4,7 +4,7 @@
  * getpath - return string containing the PATH
  * @env: enviroment list.
  *
- * Return: On success length of string.
+ * Return: On success PATH.
  */
 char *getpath(char **env)
 {

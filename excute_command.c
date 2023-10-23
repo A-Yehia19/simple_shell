@@ -20,8 +20,8 @@ int excute_command(char **tokens, int *tokens_len, char *shell_name, int *end)
 	if (_strcmp(tokens[0], "exit") == 0)
 		exit_command(tokens, tokens_len, *end);
 
-	else if (_strcmp(tokens[0], "env") == 0)
-		env_command();
+	else if (check_builtin(tokens, tokens_len, shell_name) == 0)
+		*end = 0;
 
 	else
 	{
@@ -40,7 +40,6 @@ int excute_command(char **tokens, int *tokens_len, char *shell_name, int *end)
 			/*parent process*/
 			else
 				wait(end);
-
 		}
 		else
 		{

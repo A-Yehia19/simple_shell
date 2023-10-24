@@ -11,7 +11,6 @@
 int cd_command(int argc, char **argv, char *shell_name)
 {
 	char *HOME, *cwd;
-	_printf("cd\n");
 
 	if (argc == 1)
 	{
@@ -38,6 +37,7 @@ int cd_command(int argc, char **argv, char *shell_name)
 	}
 
 	cwd = getcwd(NULL, 0);
+	_printf("%s\n", cwd);
 	_setenv("PWD", cwd);
 	free(cwd);
 	return (0);
